@@ -1,0 +1,53 @@
+	body{
+		background-color: #111111;
+	}
+	
+	div.container{
+		position: center;
+		background-color: white;
+		margin-top: 50px;
+		margin-left: 400px;
+		height: 400px;
+		width: 500px;
+		border: 5px solid #000;
+	}
+	
+	div.column{
+		position: center;
+		margin-left: 155px;
+		margin-top: 109px;
+	}
+	
+	h4{
+		font-size: 25px;
+		font-family: arial;
+		margin-left: -50px;
+	}
+	
+	
+	div.collapse {
+		padding: 100px;	
+	}
+	
+	div.field{
+		margin-top: 8px;
+	}
+	
+	button{
+		margin-top: 8px;
+		background-color: #28A745;
+		height: 30px;
+		width: 100px;
+		margin-left: 38px;
+		font-family: arial;
+		border-radius: 6px;
+		font-weight: bold;
+	}
+	
+	h3{
+		font-family: arial;
+		font-size: 23px;
+		margin-left: 51px;
+	}
+	
+	

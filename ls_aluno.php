@@ -1,6 +1,6 @@
 <br>
 <br>
-<h5>Listar os Alunos Matriculados</h5>
+<h5>Listar Alunos Matriculados</h5>
 <br>
 <br>
 <?php
@@ -15,7 +15,7 @@
 	if($qtd > 0){
 		print "<table class='table table-striped table-hover'>";
 		print "<tr>";
-		print "<th>Matrícula</th>";
+		print "<th>#ID</th>";
 		print "<th>Turma</th>";
 		print "<th>Nome</th>";
 		print "<th>Nome do Responsável</th>";
@@ -25,7 +25,7 @@
 		while($row = $res->fetch_object()){
 			print "<tr>";
 			print "<td>".$row->id_aluno."</td>";
-			print "<td>".$row->id_turma."</td>";
+			print "<td>".$row->codigo_turma."</td>";
 			print "<td>".$row->nome_aluno."</td>";
 			print "<td>".$row->nome_responsavel."</td>";
 			print "<td>".$row->telefone_aluno."</td>";

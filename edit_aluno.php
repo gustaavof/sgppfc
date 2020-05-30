@@ -1,10 +1,10 @@
 <br>
 <br>
-<h5>Editar Dados do Aluno</h5>
+<h5>Editar Dados de Alunos</h5>
 <br>
 <br>
 <?php
-	$sql = "SELECT * FROM aluno
+	$sql = "SELECT * FROM aluno 
 			WHERE id_aluno=".$_REQUEST["id_aluno"];
 			
 	$res = $conn->query($sql) or die($conn->error);
@@ -14,19 +14,17 @@
 	<input type="hidden" name="acao" value="editar">
 	<input type="hidden" name="id_aluno" value="<?php print $row->id_aluno; ?>">
 	<div class="form-group">
-		<label>Selecione a Turma Para Editar</label>
+		<label>Selecione a Turma</label>
 		<?php
-			$sql1 = "SELECT * FROM turma";
+			$sql = "SELECT * FROM turma";
+			$res = $conn->query($sql) or die($conn->error);
+			$qtd = $res->num_rows;
 			
-			$res1 = $conn->query($sql1) or die($conn->error);
-			
-			$qtd1 = $res1->num_rows;
-			
-			if($qtd1 > 0){
+			if($qtd > 0){
 				print "<select name='turma_id_turma' class='form-control'>";
-				print "<option> Selecione a turma </option>";
-				while($row1 = $res1->fetch_object()){
-					print "<option value='".$row1->id_turma."' ".($row1->id_turma == $row->turma_id_turma?"selected":"").">".$row1->categoria."</option>";
+				print "<option> Selecione a Turma</option>";
+				while($row = $res->fetch_object()){
+					print "<option value='".$row->id_turma."'>".$row->codigo_turma."</option>";
 				}
 				print "</select>";
 			}else{
@@ -35,38 +33,38 @@
 		?>
 	</div>
 	<div class="form-group">
-		<label>Editar o Nome do Aluno</label>
-		<input type="text" name="nome_aluno" class="form-control" value="<?php print $row->nome_aluno; ?>">
+		<label>Nome do Aluno </label>
+		<input type="text" placeholder="Neymar da Silva Santos Júnior" name="nome_aluno" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar o CPF do Aluno</label>
-		<input type="text" name="cpf_aluno" class="form-control" value="<?php print $row->cpf_aluno; ?>">
+		<label>CPF do Aluno </label>
+		<input type="text" placeholder="Digite os 11 números do CPF sem ponto e sem traço" name="cpf_aluno" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar a Data de Nascimento do Aluno</label>
-		<input type="text" name="data_nasc_aluno" class="form-control" value="<?php print $row->data_nasc_aluno; ?>">
+		<label>Data de Nascimento do Aluno </label>
+		<input type="text" placeholder="11/09/2001" name="data_nasc_aluno" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar o Nome do Responsável</label>
-		<input type="text" name="nome_responsavel" class="form-control" value="<?php print $row->nome_responsavel; ?>">
+		<label>Nome do Responsável Pelo Aluno </label>
+		<input type="text" placeholder="Edson Arantes do Nascimento" name="nome_responsavel" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar o CPF do Responsável</label>
-		<input type="text" name="cpf_responsavel" class="form-control" value="<?php print $row->cpf_responsavel; ?>">
+		<label>CPF do Responsável </label>
+		<input type="text" placeholder="Digite os 11 números do CPF sem ponto e sem traço" name="cpf_responsavel" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar o Endereço</label>
-		<input type="text" name="endereco_aluno" class="form-control" value="<?php print $row->endereco_aluno; ?>">
+		<label>Endereço Residencial do Aluno </label>
+		<input type="text" placeholder="Rua Seleção Brasileira, Número 04, Bairro das Seleções, Brasília/DF CEP: 19541-970" name="endereco_aluno" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar o Telefone</label>
-		<input type="text" name="telefone_aluno" class="form-control" value="<?php print $row->telefone_aluno; ?>">
+		<label>Telefone Para Contato </label>
+		<input type="text" placeholder="(DDD)0-0000-0000" name="telefone_aluno" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<label>Editar o E-mail</label>
-		<input type="text" name="email_aluno" class="form-control" value="<?php print $row->email_aluno; ?>">
+		<label>E-mail Para Contato </label>
+		<input type="text" placeholder="neymar_barcelona@jogadores.com.br" name="email_aluno" class="form-control" required>
 	</div>
 	<div class="form-group">
-		<button type="submit" class="btn btn-success">Salvar</button>
+		<button type="submit" style="width:100%;" class="btn btn-success">Cadastrar</button>
 	</div>
 </form>

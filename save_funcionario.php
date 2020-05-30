@@ -8,7 +8,7 @@
 						endereco_funcionario,
 						telefone_funcionario,
 						email_funcionario,
-						cargo_funcionario)
+						cargo_id_cargo)
 					VALUES (
 					'".@$_REQUEST["nome_funcionario"]."',
 					'".@$_REQUEST["cpf_funcionario"]."', 
@@ -16,7 +16,7 @@
 					'".@$_REQUEST["endereco_funcionario"]."',
 					'".@$_REQUEST["telefone_funcionario"]."',
 					'".@$_REQUEST["email_funcionario"]."',
-					'".@$_POST["cargo_funcionario"]."')";
+					'".@$_REQUEST["cargo_id_cargo"]."')";
 					
 			$res = $conn->query($sql);
 			
@@ -34,7 +34,7 @@
 						endereco_funcionario='".@$_REQUEST["endereco_funcionario"]."',
 						telefone_funcionario='".@$_REQUEST["telefone_funcionario"]."',
 						email_funcionario='".@$_REQUEST["email_funcionario"]."',
-						cargo_funcionario='".@$_POST["cargo_funcionario"]."'
+						cargo_id_cargo='".@$_REQUEST["cargo_id_cargo"]."'
 						WHERE id_funcionario=".$_REQUEST["id_funcionario"];
 			
 			$res = $conn->query($sql);

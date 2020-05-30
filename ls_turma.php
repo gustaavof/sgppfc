@@ -17,7 +17,8 @@
 		print "<tr>";
 		print "<th>#ID</th>";
 		print "<th>Professor</th>";
-		print "<th>Dias da Semana</th>";
+		print "<th>Código</th>";
+		print "<th>Dias de Aula</th>";
 		print "<th>Horário da Aula</th>";
 		print "<th>Categoria</th>";
 		print "<th>Ações</th>";
@@ -26,6 +27,7 @@
 			print "<tr>";
 			print "<td>".$row->id_turma."</td>";
 			print "<td>".$row->nome_funcionario."</td>";
+			print "<td>".$row->codigo_turma."</td>";
 			print "<td>".$row->dias."</td>";
 			print "<td>".$row->horario."</td>";
 			print "<td>".$row->categoria."</td>";

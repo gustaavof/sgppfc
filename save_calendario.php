@@ -21,7 +21,7 @@
 			}
 		break;
 		case "editar":
-			$sql = "UPDATE evento SET
+			$sql = "UPDATE calendario SET
 						nome_evento='".@$_REQUEST["nome_evento"]."',
 						data_evento='".@$_REQUEST["data_evento"]."',
 						horario_evento='".@$_REQUEST["horario_evento"]."',
@@ -37,7 +37,7 @@
 			}
 		break;
 		case "excluir":
-			$sql = "DELETE FROM evento WHERE id_evento=".@$_REQUEST["id_evento"];
+			$sql = "DELETE FROM calendario WHERE id_evento=".@$_REQUEST["id_evento"];
 			
 			$res = $conn->query($sql);
 			

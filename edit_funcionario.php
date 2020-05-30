@@ -34,7 +34,7 @@
 	</div>
 	<div class="form-group">
 		<label>Editar o Telefone</label>
-		<input type="number" name="telefone_funcionario" class="form-control" value="<?php print $row->telefone_funcionario; ?>">
+		<input type="text" name="telefone_funcionario" class="form-control" value="<?php print $row->telefone_funcionario; ?>">
 	</div>
 	<div class="form-group">
 		<label>Editar o E-mail</label>
@@ -42,7 +42,22 @@
 	</div>
 	<div class="form-group">
 		<label>Editar o Cargo</label>
-		<input type="text" name="cargo_funcionario" class="form-control" value="<?php print $row->cargo_funcionario; ?>">
+		<?php
+			$sql = "SELECT * FROM cargo";
+			$res = $conn->query($sql) or die($conn->error);
+			$qtd = $res->num_rows;
+			
+			if($qtd > 0){
+				print "<select name='cargo_id_cargo' class='form-control'>";
+				print "<option> Selecione o Cargo</option>";
+				while($row = $res->fetch_object()){
+					print "<option value='".$row->id_cargo."'>".$row->nome_cargo."</option>";
+				}
+				print "</select>";
+			}else{
+				print "<div class='alert alert-danger'>Não há nenhum resultado</div>";
+			}
+		?>
 	</div>
 	<div class="form-group">
 		<button type="submit" style="width: 100%;" class="btn btn-success">Salvar</button>

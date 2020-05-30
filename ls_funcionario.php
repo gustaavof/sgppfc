@@ -6,7 +6,9 @@
 <br>
 <br>
 <?php
-	$sql = "SELECT * FROM funcionario";
+	$sql = "SELECT u.*, b.* FROM funcionario AS u
+			INNER JOIN cargo AS b
+			ON u.cargo_id_cargo = b.id_cargo";
 	
 	$res = $conn->query($sql) or die($conn->error);
 	
@@ -26,7 +28,7 @@
 			print "<tr>";
 			print "<td>".$row->id_funcionario."</td>";
 			print "<td>".$row->nome_funcionario."</td>";
-			print "<td>".$row->cargo_funcionario."</td>";
+			print "<td>".$row->nome_cargo."</td>";
 
 			print "<td>
 					 <button class='btn btn-success' onclick=\"location.href='?page=edit_funcionario&id_funcionario=".$row->id_funcionario."';\">Editar</button>

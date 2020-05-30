@@ -1,15 +1,17 @@
 <br>
 <br>
+<br>
 <h5>Listar Transações</h5>
 <br>
 <br>
+<br>
 <?php
-	$sql = "SELECT u.*, b.* FROM pagamento AS u
-			INNER JOIN funcionario AS b
-			ON u.funcionario_id_funcionario = b.id_funcionario";
+	$sql = "SELECT * FROM pagamento";
 	
 	$res = $conn->query($sql) or die($conn->error);
+	
 	$qtd = $res->num_rows;
+	
 	print "<p>Encontrou <b>".$qtd."</b> resultado(s)</p>";
 	
 	if($qtd > 0){
@@ -27,7 +29,7 @@
 		while($row = $res->fetch_object()){
 			print "<tr>";
 			print "<td>".$row->id_pagamento."</td>";
-			print "<td>".$row->funcionario_id_funcionario."</td>";
+			print "<td>".$row->envolvido."</td>";
 			print "<td>".$row->valor_pagamento."</td>";
 			print "<td>".$row->data_pagamento."</td>";
 			print "<td>".$row->referencia_pagamento."</td>";

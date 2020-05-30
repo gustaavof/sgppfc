@@ -16,6 +16,7 @@
 					'".@$_REQUEST["nome_aluno"]."',
 					'".@$_REQUEST["cpf_aluno"]."',
 					'".@$_REQUEST["data_nasc_aluno"]."',
+					'".@$_REQUEST["nome_responsavel"]."',
 					'".@$_REQUEST["cpf_responsavel"]."',
 					'".@$_REQUEST["endereco_aluno"]."',
 					'".@$_REQUEST["telefone_aluno"]."',

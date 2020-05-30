@@ -23,19 +23,30 @@
 	</div>
 	<div class="form-group">
 		<label>Telefone do Funcionário</label>
-		<input type="number" name="telefone_funcionario" class="form-control">
+		<input type="text" name="telefone_funcionario" class="form-control">
 	</div>
 	<div class="form-group">
 		<label>Email do Funcionário</label>
 		<input type="text" name="email_funcionario" class="form-control">
 	</div>
 	<div class="form-group">
-		<label for="cargo_funcionario">Função do Funcionário</label>
-			<select class="form-control" id="cargo_funcionario">
-				<option value='' selected disabled>Selecione o Cargo</option>
-				<option value="Professor">Professor</option>
-				<option value="Segurança">Segurança</option>
-			</select>
+		<label>Cargo do Funcionário</label>
+		<?php
+			$sql = "SELECT * FROM cargo";
+			$res = $conn->query($sql) or die($conn->error);
+			$qtd = $res->num_rows;
+			
+			if($qtd > 0){
+				print "<select name='cargo_id_cargo' class='form-control'>";
+				print "<option> Selecione o Cargo</option>";
+				while($row = $res->fetch_object()){
+					print "<option value='".$row->id_cargo."'>".$row->nome_cargo."</option>";
+				}
+				print "</select>";
+			}else{
+				print "<div class='alert alert-danger'>Não há nenhum resultado</div>";
+			}
+		?>
 	</div>
 	<div class="form-group">
 		<button type="submit" style="width: 100%;" class="btn btn-success">Cadastrar</button>

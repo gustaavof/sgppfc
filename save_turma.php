@@ -3,11 +3,13 @@
 		case "cadastrar":
 			$sql = "INSERT INTO turma (
 						funcionario_id_funcionario, 
+						codigo_turma,
 						dias,
 						horario,
 						categoria) 
 					VALUES (
 					'".@$_REQUEST["funcionario_id_funcionario"]."',
+					'".@$_REQUEST["codigo_turma"]."',
 					'".@$_REQUEST["dias"]."',
 					'".@$_REQUEST["horario"]."',
 					'".@$_REQUEST["categoria"]."')";
@@ -23,6 +25,7 @@
 		case "editar":
 			$sql = "UPDATE turma SET 
 						funcionario_id_funcionario=".$_REQUEST["funcionario_id_funcionario"].",
+						codigo_turma='".@$_REQUEST["codigo_turma"]."',
 						dias='".@$_REQUEST["dias"]."',
 						horario='".@$_REQUEST["horario"]."',
 						categoria='".@$_REQUEST["categoria"]."'				

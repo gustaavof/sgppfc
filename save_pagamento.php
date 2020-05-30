@@ -2,18 +2,18 @@
 	switch(@$_REQUEST["acao"]){
 		case "cadastrar":
 			$sql = "INSERT INTO pagamento (
-						funcionario_id_funcionario, 
+						envolvido, 
 						valor_pagamento,
 						data_pagamento,
 						referencia_pagamento,
 						tipo_pagamento,
 						comprovante_pagamento) 
 					VALUES (
-					'".@$_REQUEST["funcionario_id_funcionario"]."',
+					'".@$_REQUEST["envolvido"]."',
 					'".@$_REQUEST["valor_pagamento"]."',
 					'".@$_REQUEST["data_pagamento"]."',
-					'".@$_POST["referencia_pagamento"]."',
-					'".@$_POST["tipo_pagamento"]."',
+					'".@$_REQUEST["referencia_pagamento"]."',
+					'".@$_REQUEST["tipo_pagamento"]."',
 					'".@$_REQUEST["comprovante_pagamento"]."')";
 			
 			$res = $conn->query($sql);
@@ -26,11 +26,11 @@
 		break;
 		case "editar":
 			$sql = "UPDATE pagamento SET 
-						funcionario_id_funcionario=".$_REQUEST["funcionario_id_funcionario"].",
+						envolvido='".@$_REQUEST["envolvido"]."',
 						valor_pagamento='".@$_REQUEST["valor_pagamento"]."',
 						data_pagamento='".@$_REQUEST["data_pagamento"]."',
-						referencia_pagamento='".@$_POST["referencia_pagamento"]."',
-						tipo_pagamento='".@$_POST["tipo_pagamento"]."',
+						referencia_pagamento='".@$_REQUEST["referencia_pagamento"]."',
+						tipo_pagamento='".@$_REQUEST["tipo_pagamento"]."',
 						comprovante_pagamento='".@$_REQUEST["comprovante_pagamento"]."'				
 					WHERE id_pagamento=".@$_REQUEST["id_pagamento"];
 			
